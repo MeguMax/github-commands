@@ -1,16 +1,11 @@
-  $yaml2 = @'
-  name: Show Date On Push
+name: Show Date On Push
 
-  on:
-    push:
+on:
+  push:
 
-  jobs:
-    show-date:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Print current system date
-          run: date
-    '@
-    
-    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-    [System.IO.File]::WriteAllText(".github/workflows/push-date.yml", $yaml2, $utf8NoBom)
+jobs:
+  show-date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print current system date
+        run: date
