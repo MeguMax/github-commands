@@ -1,0 +1,13 @@
+  @"
+name: Show Date On Push
+
+on:
+  push:
+
+jobs:
+  show-date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print current system date
+        run: date
+"@ | Out-File -Encoding utf8 .github\workflows\push-date.yml

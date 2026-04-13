@@ -1,0 +1,13 @@
+  @"
+name: Manual OS Info
+
+on:
+  workflow_dispatch:
+
+jobs:
+  show-os-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show operating system information
+        run: uname -v
+"@ | Out-File -Encoding utf8 .github\workflows\manual-os-info.yml
