@@ -1,13 +1,16 @@
-  @"
-name: Manual OS Info
+  $yaml1 = @'
+  name: Manual OS Info
 
-on:
-  workflow_dispatch:
+  on:
+    workflow_dispatch:
 
-jobs:
-  show-os-info:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Show operating system information
-        run: uname -v
-"@ | Out-File -Encoding utf8 .github\workflows\manual-os-info.yml
+  jobs:
+    show-os-info:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Show operating system information
+          run: uname -v
+    '@
+    
+    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+    [System.IO.File]::WriteAllText(".github/workflows/manual-os-info.yml", $yaml1, $utf8NoBom)
